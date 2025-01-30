@@ -197,4 +197,4 @@ You can click the "Upload More Files" button to go back to the upload page, or c
 ## Notes
 
 - **Model Limitations**: The T5 model used in this project is a small transformer model (`t5-small`). It is lightweight and fast but may not provide high-quality answers when dealing with complex or lengthy documents, as it is not trained on long sequences. It was chosen for this project because it allows for quick inference without the need for expensive API calls.
-- **Success FActors**: While the LLM answer quality is not great, the working of the RAG system is evident if the user provides diverse topics of inputs via PDFs and tests the system by prompting about the different topics in the chat interface.
+- **Success Factors**: While the LLM answer quality is not great, the working of the RAG system is evident if the user provides diverse topics of inputs via PDFs and tests the system by prompting about the different topics in the chat interface.

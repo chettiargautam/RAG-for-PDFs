@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        *{
+            font-size: 20px;
+            text-align: center;
+            align-items: center;
+            padding: 10px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 60%;
+        }
+        #chat-response p {
+            font-size: 18px;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        #chat-response hr {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Chatbot</h1>
+
+<!-- Buttons for navigation -->
+<button onclick="window.location.href='/'">Upload More Files</button>
+<button onclick="window.location.href='/chat'">Stay in Chat</button>
+
+<form id="chat-form">
+    <input type="text" id="query" placeholder="Ask a question" required>
+    <button type="submit">Ask</button>
+</form>
+
+<div id="chat-response"></div>
+
+<script>
+    const form = document.getElementById('chat-form');
+    const chatResponseDiv = document.getElementById('chat-response');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const query = document.getElementById('query').value;
+        const response = await fetch('/ask', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ query: query })
+        });
+
+        const data = await response.json();
+        chatResponseDiv.innerHTML = '';
+        data.forEach(res => {
+            chatResponseDiv.innerHTML += `<p><strong>Answer:</strong> ${res.answer}</p><p><strong>From File:</strong> ${res.file}</p><p><strong>Chunk Number:</strong> ${res.chunk_number}</p><hr>`;
+        });
+    });
+</script>
+
+</body>
+</html>

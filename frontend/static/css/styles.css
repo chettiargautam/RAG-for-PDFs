@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+#chatbox {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#userQuery {
+    width: 80%;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#chatWindow {
+    margin-bottom: 20px;
+}

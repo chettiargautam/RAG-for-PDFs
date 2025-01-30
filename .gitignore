@@ -1,0 +1,11 @@
+# Data
+data/*
+!data/.gitkeep
+
+# Database
+db/*
+!db/.gitkeep
+
+# Pycache
+models/__pycache__/*
+pdf_processing/__pycache__/*

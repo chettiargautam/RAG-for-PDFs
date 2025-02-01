@@ -9,3 +9,4 @@ db/*
 # Pycache
 models/__pycache__/*
 pdf_processing/__pycache__/*
+frontend/__pycache__/*
